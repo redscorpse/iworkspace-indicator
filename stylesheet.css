@@ -1,0 +1,33 @@
+.desktop-label-nonempty-active {
+  margin: auto 3px;
+  background-color: rgba(230, 230, 230, 0.9);
+  border-radius: 100px;
+  height: 8px;
+  width: 27px;
+}
+
+.desktop-label-nonempty-inactive {
+  margin: auto 3px;
+  background-color: rgba(140, 140, 140, 0.9);
+  border-radius: 100px;
+  height: 8px;
+  width: 8px;
+}
+
+.desktop-label-empty-active {
+  margin: auto 3px;
+  background-color: rgba(96, 96, 96, 0.9);
+  border-radius: 100px;
+  height: 8px;
+  width: 27px;
+}
+
+.desktop-label-empty-inactive {
+  margin: auto 3px;
+  background-color: rgba(0, 0, 0, 0.0);
+  border: 1px solid rgba(210,210,210,0.5);
+  border-radius: 100px;
+  height: 6px;
+  width: 6px;
+}
+
