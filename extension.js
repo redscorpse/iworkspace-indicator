@@ -21,10 +21,10 @@ var WORKSPACES_SCHEMA = "org.gnome.desktop.wm.preferences";
 var WORKSPACES_KEY = "workspace-names";
 
 
-var SimpleWorkspacesBar = GObject.registerClass(
-  class SimpleWorkspacesBar extends Button {
+var iWorkspaceIndicator = GObject.registerClass(
+  class iWorkspaceIndicator extends Button {
     _init() {
-      super._init(0.0, 'Simple Workspaces Bar');
+      super._init(0.0, 'iWorkspace Indicator');
       this.track_hover = false;
 
       // define gsettings schema for workspaces names, get workspaces names,
@@ -123,9 +123,7 @@ var SimpleWorkspacesBar = GObject.registerClass(
           ws_index == this.active_ws_index,
           global.workspace_manager.get_workspace_by_index(ws_index).n_windows <= 0,
         )
-        this.ws_box.label.set_text(
-          `  ${this.workspaces_names[ws_index] ?? ws_index + 1}  `
-        );
+        this.ws_box.label.set_text("");
         this.ws_box.set_child(this.ws_box.label);
         this.ws_box.connect('button-release-event', () => this._toggle_ws(ws_index));
         this.ws_bar.add_child(this.ws_box);
@@ -146,8 +144,8 @@ var SimpleWorkspacesBar = GObject.registerClass(
 
 export default class SWBExtension extends Extension {
   enable() {
-    this.workspaces_bar = new SimpleWorkspacesBar();
-    Main.panel.addToStatusArea('simple-workspaces-bar', this.workspaces_bar, 0, 'left');
+    this.workspaces_bar = new iWorkspaceIndicator();
+    Main.panel.addToStatusArea('iworkspace-indicator', this.workspaces_bar, 0, 'left');
   }
 
   disable() {
